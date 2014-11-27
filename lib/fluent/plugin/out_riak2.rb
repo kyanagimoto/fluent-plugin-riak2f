@@ -1,8 +1,8 @@
 module Fluent
 
-class RiakOutput < BufferedOutput
+class Riak2Output < BufferedOutput
 
-  Fluent::Plugin.register_output('riak', self)
+  Fluent::Plugin.register_output('riak2', self)
   include SetTimeKeyMixin
   config_set_default :include_tag_key, true
   include SetTagKeyMixin
