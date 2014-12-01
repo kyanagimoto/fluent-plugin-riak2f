@@ -30,7 +30,7 @@ class Riak2Output < BufferedOutput
 
   def start
     $log.debug " => #{@buffer.chunk_limit} #{@buffer.queue_limit} "
-    @conn = Riak::Client.new(:nodes => @nodes, :protocol => "pbc")
+    @conn = Riak::Client.new(:nodes => @nodes)
     @bucket = @conn.bucket(@bucket_name)
     @buf = {}
 
