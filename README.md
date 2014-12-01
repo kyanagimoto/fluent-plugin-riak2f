@@ -1,7 +1,14 @@
-fluent-plugin-riak, a plugin for [Fluentd](http://fluentd.org)
+[fluent-plugin-riak2](https://github.com/collectivehealth/fluent-plugin-riak2g), a plugin for [Fluentd](http://fluentd.org)
 ==================
 
-fluent-plugin-riak is a alternative for people who are not sufficient with mongo or webhdfs. Riak ( http://github.com/basho/riak ) is an open-source distributed KVS focused on availability. It also has a strong query system with secondary index (2i): see docs ( http://docs.basho.com/riak/latest/tutorials/querying/ ) for details.
+
+`fluent-plugin-riak2` is a fluentd output plugin designed to stuff log messages into a riak cluster.
+
+This version is based on the work of [Kota UENISHI's fluent-plugin-riak](https://github.com/kuenishi/fluent-plugin-riak).  We are very thankful for his effort and his decision to release the work under the Apache 2 license.
+
+`fluent-plugin-riak2` is designed to be used with Riak 2.x clusters and it's yokozuna/solr based search engine.  Support for secondary indicies is limited and should be considered deprecated.
+
+Riak ( http://github.com/basho/riak ) is an open-source distributed KVS focused on availability.
 
 Current status is still proof-of-concept: index setting and its configuration are to be decided. Also performance optimization is required. Another idea is in_tail_riak by using riak post-commit.
 
@@ -9,7 +16,7 @@ installation
 ------------
 
 ```bash
-$ sudo gem install fluent-plugin-riak
+$ sudo gem install fluent-plugin-riak2
 ```
 
 Notice: you need Riak configured using eleveldb as backend.
@@ -19,8 +26,8 @@ fluent.conf example
 -------------------
 
 ```
-<match riak.**>
-  type riak
+<match riak2.**>
+  type riak2
 
   buffer_type memory
   flush_interval 10s
@@ -53,31 +60,15 @@ $ curl -X PUT http://localhost:8098/buckets/static/keys/browser.html -H 'Content
 $ open http://localhost:8098/buckets/static/keys/browser.html
 ```
 
-Pros
-----
-
-- easy operations
-- high availability
-- horizontal scalability (esp. write performance)
-- good night sleep
-
-Cons
-----
-
-- no capped table, TTL objects
-
-TODOs
------
-
-- refine browser.html query interface with cool features
-- rething index structures
-
-
 License
 =======
 
 Apache 2.0
 
-Copyright Kota UENISHI
+Copyright Kota UENISHI, Collective Health, Inc.
+
+Kota UENISHI's original message:
 
 Many Thanks to fluent-plugin-mongo
+
+Collective Health, Inc. would like to thank Kota UENISHI for his effort and his decision to release the work under the Apache 2 license.
