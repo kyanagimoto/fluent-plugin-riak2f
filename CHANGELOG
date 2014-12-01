@@ -1,0 +1,6 @@
+0.0.4
+=====
+
+- hard fork from https://github.com/kuenishi/fluent-plugin-riak , see README for more info
+- bare minimum to support riak-ruby-client v2.1
+- change UUID to v1 (timestamp based)
