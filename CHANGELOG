@@ -1,3 +1,10 @@
+0.0.5
+=====
+
+- update to support riak 2.0 bucket types
+- update record to support riak search 2.0 (yokozuna) style json extraction
+- write to a metadata crdt map bucket names
+
 0.0.4
 =====
 
