@@ -94,7 +94,7 @@ module Fluent
             begin
               robj = Riak::RObject.new(@bucket, key)
               robj.content_type = "application/json"
-              robj.raw_data = record
+              robj.raw_data = record.to_json
               robj.store(type: @bucket_type)
             rescue => e
               $log.error "ERROR #{e}"
